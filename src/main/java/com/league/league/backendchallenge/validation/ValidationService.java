@@ -11,7 +11,7 @@ public class ValidationService {
 
 
 
-    public static boolean isInputInteger( String number ){
+    public static boolean isInputAnInteger( String number ){
         try{
             Integer.parseInt( number );
             return true;

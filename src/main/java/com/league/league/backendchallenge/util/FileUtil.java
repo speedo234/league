@@ -41,8 +41,8 @@ public class FileUtil {
 
             for(int i = 0; i < tempArrayLine.size(); i++){
 
-                if(!ValidationService.isInputInteger( tempArrayLine.get(i) ))
-                    throw new InvalidInputException("value entered at index "+x+" "+i+" is an invalid integer...");
+                if(!ValidationService.isInputAnInteger( tempArrayLine.get(i) ))
+                    throw new InvalidInputException("value "+tempArrayLine.get(i)+" entered at index "+x+" "+i+" is an invalid integer...");
 
                 integerList.add( Integer.parseInt( tempArrayLine.get(i) ) );
             }
