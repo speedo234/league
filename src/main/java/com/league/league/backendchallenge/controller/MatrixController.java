@@ -44,4 +44,10 @@ public class MatrixController {
     }
 
 
+    @PostMapping("/echoMultiply")
+    public ResponseEntity<?> echoMultiply( @RequestPart("file") MultipartFile file ) throws IOException {
+        return ResponseEntity.status(HttpStatus.OK).body(matrixService.doMatrixMultiply(file));
+    }
+
+
 }

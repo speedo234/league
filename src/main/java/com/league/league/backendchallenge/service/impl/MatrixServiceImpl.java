@@ -19,24 +19,21 @@ public class MatrixServiceImpl implements MatrixService {
     public String doMatrixGiven(MultipartFile file) throws IOException {
         List<CSVRecord> csvRecordList = FileUtil.getCSVRecordsFromInputFile(file);
         List<List<Integer>> integerList1 = FileUtil.getMatrixFromCSVRecords(csvRecordList);
-        String string = FileUtil.doMatrixFormatString(integerList1);
-        return string;
+        return FileUtil.doMatrixFormatString(integerList1);
     }
 
     @Override
     public String doMatrixInverted(MultipartFile file) throws IOException {
         List<CSVRecord> csvRecordList = FileUtil.getCSVRecordsFromInputFile(file);
         List<List<Integer>> integerList1 = FileUtil.getMatrixFromCSVRecords(csvRecordList);
-        String string = FileUtil.doMatrixFormatStringInverted(integerList1);
-        return string;
+        return FileUtil.doMatrixFormatStringInverted(integerList1);
     }
 
     @Override
     public String doMatrixFlatten(MultipartFile file) throws IOException {
         List<CSVRecord> csvRecordList = FileUtil.getCSVRecordsFromInputFile(file);
         List<List<Integer>> integerList1 = FileUtil.getMatrixFromCSVRecords(csvRecordList);
-        String string = FileUtil.doMatrixFormatStringFlatten(integerList1);
-        return string;
+        return FileUtil.doMatrixFormatStringFlatten(integerList1);
     }
 
 
@@ -44,8 +41,14 @@ public class MatrixServiceImpl implements MatrixService {
     public int doMatrixSum(MultipartFile file) throws IOException {
         List<CSVRecord> csvRecordList = FileUtil.getCSVRecordsFromInputFile(file);
         List<List<Integer>> integerList1 = FileUtil.getMatrixFromCSVRecords(csvRecordList);
-        int summation = FileUtil.doMatrixSum(integerList1);
-        return summation;
+        return FileUtil.doMatrixSum(integerList1);
+    }
+
+    @Override
+    public int doMatrixMultiply(MultipartFile file) throws IOException {
+        List<CSVRecord> csvRecordList = FileUtil.getCSVRecordsFromInputFile(file);
+        List<List<Integer>> integerList1 = FileUtil.getMatrixFromCSVRecords(csvRecordList);
+        return FileUtil.doMatrixMultiply(integerList1);
     }
 
 

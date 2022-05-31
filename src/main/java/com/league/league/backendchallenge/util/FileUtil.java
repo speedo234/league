@@ -106,6 +106,21 @@ public class FileUtil {
     }
 
 
+    public static int doMatrixMultiply(List<List<Integer>> integerList1){
+        int matrixMultiplication = 1;
+
+        for(int i = 0; i < integerList1.size(); i++){
+            List<Integer> innerList = integerList1.get(i);
+            for(int x = 0; x < innerList.size(); x++){
+
+                matrixMultiplication = matrixMultiplication * innerList.get(x);
+
+            }
+        }
+        return matrixMultiplication;
+    }
+
+
 
     public static void printMatrix(List<List<Integer>> integerList1){
         for(List<Integer> integerList :integerList1){
