@@ -33,18 +33,18 @@ public class FileUtil {
     public static List<List<Integer>> getMatrixFromCSVRecords(List<CSVRecord> csvRecordList) throws IOException {
         List<List<Integer>> listArrayList = new ArrayList<List<Integer>>();
         List<Integer> integerList = null;
-//        for (CSVRecord record : csvRecordList) {
+        CSVRecord tempArrayLine = null;
         for (int x = 0; x < csvRecordList.size(); x++) {
             integerList = new ArrayList<>();
 
-//            LcsvRecordList.get(x);
+            tempArrayLine = csvRecordList.get(x);
 
-            for(int i = 0; i < csvRecordList.get(x).size(); i++){
+            for(int i = 0; i < tempArrayLine.size(); i++){
 
-                if(!ValidationService.validate( csvRecordList.get(x).get(i) ))
+                if(!ValidationService.isInputInteger( tempArrayLine.get(i) ))
                     throw new InvalidInputException("value entered at index "+x+" "+i+" is an invalid integer...");
 
-                integerList.add( Integer.parseInt( csvRecordList.get(x).get(i) ) );
+                integerList.add( Integer.parseInt( tempArrayLine.get(i) ) );
             }
             listArrayList.add(integerList);
         }
