@@ -1,9 +1,12 @@
 package com.league.league.backendchallenge.util;
 
 
+import com.league.league.backendchallenge.exception.InvalidInputException;
+import com.league.league.backendchallenge.validation.ValidationService;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -16,6 +19,9 @@ import java.util.List;
 public class FileUtil {
 
 
+    @Autowired
+    ValidationService validationService;
+
 
     public static List<CSVRecord> getCSVRecordsFromInputFile(MultipartFile file) throws IOException {
         CSVParser records = CSVFormat.EXCEL.parse(new InputStreamReader(file.getInputStream()));
@@ -27,11 +33,18 @@ public class FileUtil {
     public static List<List<Integer>> getMatrixFromCSVRecords(List<CSVRecord> csvRecordList) throws IOException {
         List<List<Integer>> listArrayList = new ArrayList<List<Integer>>();
         List<Integer> integerList = null;
-        for (CSVRecord record : csvRecordList) {
+//        for (CSVRecord record : csvRecordList) {
+        for (int x = 0; x < csvRecordList.size(); x++) {
             integerList = new ArrayList<>();
 
-            for(int i = 0; i < csvRecordList.size(); i++){
-                integerList.add( Integer.parseInt(record.get(i)) );
+//            LcsvRecordList.get(x);
+
+            for(int i = 0; i < csvRecordList.get(x).size(); i++){
+
+                if(!ValidationService.validate( csvRecordList.get(x).get(i) ))
+                    throw new InvalidInputException("value entered at index "+x+" "+i+" is an invalid integer...");
+
+                integerList.add( Integer.parseInt( csvRecordList.get(x).get(i) ) );
             }
             listArrayList.add(integerList);
         }
