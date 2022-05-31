@@ -28,5 +28,10 @@ public class MatrixController {
         return ResponseEntity.status(HttpStatus.OK).body(matrixService.doMatrixInverted(file));
     }
 
+    @PostMapping("/echoFlatten")
+    public ResponseEntity<String> echoFlatten( @RequestPart("file") MultipartFile file ) throws IOException {
+        return ResponseEntity.status(HttpStatus.OK).body(matrixService.doMatrixFlatten(file));
+    }
+
 
 }

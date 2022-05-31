@@ -14,5 +14,7 @@ public interface MatrixService {
 
     public String doMatrixInverted(MultipartFile file) throws IOException;
 
+    public String doMatrixFlatten(MultipartFile file) throws IOException;
+
 
 }

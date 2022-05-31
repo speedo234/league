@@ -18,16 +18,33 @@ public class MatrixServiceImpl implements MatrixService {
     @Override
     public String doMatrixGiven(MultipartFile file) throws IOException {
         List<CSVRecord> csvRecordList = FileUtil.getCSVRecordsFromInputFile(file);
-        List<List<Integer>> integerList1 = FileUtil.getMatrixFromCSVRecords(csvRecordList);
-        String string = FileUtil.doMatrixFormatString(integerList1);
+
+        final int matrixSize = FileUtil.getMatrixSize(csvRecordList);
+        List<List<Integer>> integerList1 = FileUtil.getMatrixFromCSVRecords(csvRecordList, matrixSize);
+
+        String string = FileUtil.doMatrixFormatString(integerList1, matrixSize);
         return string;
     }
 
     @Override
     public String doMatrixInverted(MultipartFile file) throws IOException {
         List<CSVRecord> csvRecordList = FileUtil.getCSVRecordsFromInputFile(file);
-        List<List<Integer>> integerList1 = FileUtil.getMatrixFromCSVRecords(csvRecordList);
-        String string = FileUtil.doMatrixFormatStringInverted(integerList1);
+
+        final int matrixSize = FileUtil.getMatrixSize(csvRecordList);
+        List<List<Integer>> integerList1 = FileUtil.getMatrixFromCSVRecords(csvRecordList, matrixSize);
+
+        String string = FileUtil.doMatrixFormatStringInverted(integerList1, matrixSize);
+        return string;
+    }
+
+    @Override
+    public String doMatrixFlatten(MultipartFile file) throws IOException {
+        List<CSVRecord> csvRecordList = FileUtil.getCSVRecordsFromInputFile(file);
+
+        final int matrixSize = FileUtil.getMatrixSize(csvRecordList);
+        List<List<Integer>> integerList1 = FileUtil.getMatrixFromCSVRecords(csvRecordList, matrixSize);
+
+        String string = FileUtil.doMatrixFormatStringFlatten(integerList1, matrixSize);
         return string;
     }
 
