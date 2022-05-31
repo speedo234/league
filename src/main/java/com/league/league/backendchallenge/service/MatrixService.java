@@ -10,11 +10,13 @@ import java.util.List;
 public interface MatrixService {
 
 
-    public String doMatrixGiven(MultipartFile file) throws IOException;
+    String doMatrixGiven(MultipartFile file) throws IOException;
 
-    public String doMatrixInverted(MultipartFile file) throws IOException;
+    String doMatrixInverted(MultipartFile file) throws IOException;
 
-    public String doMatrixFlatten(MultipartFile file) throws IOException;
+    String doMatrixFlatten(MultipartFile file) throws IOException;
+
+    int doMatrixSum(MultipartFile file) throws IOException;
 
 
 }

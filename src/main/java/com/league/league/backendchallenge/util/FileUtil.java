@@ -24,13 +24,13 @@ public class FileUtil {
 
 
 
-    public static List<List<Integer>> getMatrixFromCSVRecords(List<CSVRecord> csvRecordList, int matrixSize) throws IOException {
+    public static List<List<Integer>> getMatrixFromCSVRecords(List<CSVRecord> csvRecordList) throws IOException {
         List<List<Integer>> listArrayList = new ArrayList<List<Integer>>();
         List<Integer> integerList = null;
         for (CSVRecord record : csvRecordList) {
             integerList = new ArrayList<>();
 
-            for(int i = 0; i < matrixSize; i++){
+            for(int i = 0; i < csvRecordList.size(); i++){
                 integerList.add( Integer.parseInt(record.get(i)) );
             }
             listArrayList.add(integerList);
@@ -39,15 +39,14 @@ public class FileUtil {
     }
 
 
-    public static String doMatrixFormatString(List<List<Integer>> integerList1, int matrixSize){
-        boolean isMultipleLine = true;
+    public static String doMatrixFormatString(List<List<Integer>> integerList1){
         StringBuilder stringBuilder = new StringBuilder();
         for(int i = 0; i < integerList1.size(); i++){
             List<Integer> innerList = integerList1.get(i);
             for(int x = 0; x < innerList.size(); x++){
                 stringBuilder.append(innerList.get(x));
 
-                doLineProcessor(stringBuilder, x, innerList.size(), isMultipleLine);
+                doLineProcessor(stringBuilder, x, innerList.size());
 
             }
         }
@@ -56,8 +55,7 @@ public class FileUtil {
     }
 
 
-    public static String doMatrixFormatStringInverted(List<List<Integer>> integerList1, int matrixSize){
-        boolean isMultipleLine = true;
+    public static String doMatrixFormatStringInverted(List<List<Integer>> integerList1){
         StringBuilder stringBuilder = new StringBuilder();
         for(int x = 0; x < integerList1.size(); x++){
             for(int i = 0; i < integerList1.size(); i++){
@@ -65,7 +63,7 @@ public class FileUtil {
                 integerList1.get(i).get(x);
                 stringBuilder.append( integerList1.get(i).get(x) );
 
-                doLineProcessor(stringBuilder, i, integerList1.size(), isMultipleLine);
+                doLineProcessor(stringBuilder, i, integerList1.size());
 
             }
         }
@@ -73,7 +71,7 @@ public class FileUtil {
         return stringBuilder.toString();
     }
 
-    public static String doMatrixFormatStringFlatten(List<List<Integer>> integerList1, int matrixSize){
+    public static String doMatrixFormatStringFlatten(List<List<Integer>> integerList1){
         int elementCount = 0;
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -93,6 +91,22 @@ public class FileUtil {
     }
 
 
+    public static int doMatrixSum(List<List<Integer>> integerList1){
+        int matrixSummation = 0;
+
+        for(int i = 0; i < integerList1.size(); i++){
+            List<Integer> innerList = integerList1.get(i);
+            for(int x = 0; x < innerList.size(); x++){
+
+                matrixSummation = matrixSummation + innerList.get(x);
+
+            }
+        }
+        return matrixSummation;
+    }
+
+
+
     public static void printMatrix(List<List<Integer>> integerList1){
         for(List<Integer> integerList :integerList1){
             System.out.println(integerList);
@@ -100,7 +114,7 @@ public class FileUtil {
     }
 
 
-    private static void doLineProcessor(StringBuilder stringBuilder, int indexControl, int listSize, boolean isMultipleLines){
+    private static void doLineProcessor(StringBuilder stringBuilder, int indexControl, int listSize){
         if(indexControl+1 != listSize)
             stringBuilder.append(",");
 
@@ -110,13 +124,6 @@ public class FileUtil {
 
 
     private static void doSingleLineProcessor(StringBuilder stringBuilder, int indexControl, int listSize, int elementCount){
-
-        System.out.println("indexControl+1=-> "+indexControl+1);
-        System.out.println("listSize=-> "+listSize);
-        System.out.println("(indexControl+1)*(listSize)=-> "+(indexControl+1)*(listSize));
-        System.out.println("elementCount=-> "+elementCount);
-        System.out.println("(listSize*listSize)=-> "+(listSize*listSize));
-
         if(elementCount < listSize*listSize )
             stringBuilder.append(",");
     }
