@@ -13,4 +13,6 @@ public interface ValidationService {
 
     boolean isInputAnInteger( String number );
 
+    boolean isValidMatrixFormat( List<List<Integer>> integerList1 );
+
 }
