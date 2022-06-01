@@ -21,12 +21,18 @@ import java.util.List;
 public class MatrixServiceImpl implements MatrixService {
 
 
-    @Autowired
+
     ValidationService validationService;
 
-    @Autowired
+
     ResponseServiceImpl responseService;
 
+
+    @Autowired
+    public MatrixServiceImpl(ValidationService validationService, ResponseServiceImpl responseService) {
+        this.validationService = validationService;
+        this.responseService = responseService;
+    }
 
     @Override
     public String doMatrixGiven(MultipartFile file) throws IOException {
