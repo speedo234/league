@@ -25,20 +25,14 @@ public class ValidationServiceImpl implements ValidationService {
 
     @Override
     public boolean isValidMatrixFormat(List<CSVRecord> csvRecordList) {
-
         boolean response = true;
-
         for(int i = 0; i < csvRecordList.size(); i++){
-
             if( csvRecordList.size() != csvRecordList.get(i).size() ){
                 response = false;
                 break;
             }
-
         }
-
         return response;
-
     }
 
 }

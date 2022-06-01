@@ -69,6 +69,7 @@ class MatrixServiceImplTest {
 
         String expected = stringBuilder.toString();
 
+        when(validationService.isValidMatrixFormat( Mockito.anyList() )).thenReturn(true);
         when(validationService.isInputAnInteger( Mockito.anyString() )).thenReturn(true);
         when(responseService.doMatrixFormatString(integerList1)).thenReturn(expected);
         String actual = matrixService.doMatrixGiven(file);
@@ -89,6 +90,7 @@ class MatrixServiceImplTest {
 
         String expected = stringBuilder.toString();
 
+        when(validationService.isValidMatrixFormat( Mockito.anyList() )).thenReturn(true);
         when(validationService.isInputAnInteger(Mockito.anyString())).thenReturn(true);
         when(responseService.doMatrixFormatStringInverted(integerList1)).thenReturn(expected);
         String actual = matrixService.doMatrixInverted(file);
@@ -105,6 +107,7 @@ class MatrixServiceImplTest {
 
         String expected = stringBuilder.toString();
 
+        when(validationService.isValidMatrixFormat( Mockito.anyList() )).thenReturn(true);
         when(validationService.isInputAnInteger(Mockito.anyString())).thenReturn(true);
         when(responseService.doMatrixFormatStringFlatten(integerList1)).thenReturn(expected);
         String actual = matrixService.doMatrixFlatten(file);
@@ -117,6 +120,7 @@ class MatrixServiceImplTest {
 
         int expected = 45;
 
+        when(validationService.isValidMatrixFormat( Mockito.anyList() )).thenReturn(true);
         when(validationService.isInputAnInteger(Mockito.anyString())).thenReturn(true);
         when(responseService.doMatrixSum( integerList1 )).thenReturn(expected);
         int actual = matrixService.doMatrixSum(file);
@@ -128,6 +132,7 @@ class MatrixServiceImplTest {
 
         int expected = 362880;
 
+        when(validationService.isValidMatrixFormat( Mockito.anyList() )).thenReturn(true);
         when(validationService.isInputAnInteger(Mockito.anyString())).thenReturn(true);
         when(responseService.doMatrixMultiply(integerList1)).thenReturn(expected);
         int actual = matrixService.doMatrixMultiply(file);
