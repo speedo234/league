@@ -2,6 +2,7 @@ package com.league.league.backendchallenge.service.impl;
 
 
 import com.league.league.backendchallenge.service.ValidationService;
+import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,8 +24,21 @@ public class ValidationServiceImpl implements ValidationService {
     }
 
     @Override
-    public boolean isValidMatrixFormat(List<List<Integer>> integerList1) {
-        return integerList1.size() == integerList1.get(0).size();
+    public boolean isValidMatrixFormat(List<CSVRecord> csvRecordList) {
+
+        boolean response = true;
+
+        for(int i = 0; i < csvRecordList.size(); i++){
+
+            if( csvRecordList.size() != csvRecordList.get(i).size() ){
+                response = false;
+                break;
+            }
+
+        }
+
+        return response;
+
     }
 
 }

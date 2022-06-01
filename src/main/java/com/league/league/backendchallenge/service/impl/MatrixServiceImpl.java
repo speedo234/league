@@ -37,27 +37,27 @@ public class MatrixServiceImpl implements MatrixService {
     @Override
     public String doMatrixGiven(MultipartFile file) throws IOException {
         List<CSVRecord> csvRecordList = getCSVRecordsFromInputFile(file);
-        List<List<Integer>> integerList1 = getMatrixFromCSVRecords(csvRecordList);
-        if(!validationService.isValidMatrixFormat(integerList1))
+        if(!validationService.isValidMatrixFormat(csvRecordList))
             throw new InvalidInputException("provided data is NOT a valid matrix format...");
+        List<List<Integer>> integerList1 = getMatrixFromCSVRecords(csvRecordList);
         return responseService.doMatrixFormatString(integerList1);
     }
 
     @Override
     public String doMatrixInverted(MultipartFile file) throws IOException {
         List<CSVRecord> csvRecordList = getCSVRecordsFromInputFile(file);
-        List<List<Integer>> integerList1 = getMatrixFromCSVRecords(csvRecordList);
-        if(!validationService.isValidMatrixFormat(integerList1))
+        if(!validationService.isValidMatrixFormat(csvRecordList))
             throw new InvalidInputException("provided data is NOT a valid matrix format...");
+        List<List<Integer>> integerList1 = getMatrixFromCSVRecords(csvRecordList);
         return responseService.doMatrixFormatStringInverted(integerList1);
     }
 
     @Override
     public String doMatrixFlatten(MultipartFile file) throws IOException {
         List<CSVRecord> csvRecordList = getCSVRecordsFromInputFile(file);
-        List<List<Integer>> integerList1 = getMatrixFromCSVRecords(csvRecordList);
-        if(!validationService.isValidMatrixFormat(integerList1))
+        if(!validationService.isValidMatrixFormat(csvRecordList))
             throw new InvalidInputException("provided data is NOT a valid matrix format...");
+        List<List<Integer>> integerList1 = getMatrixFromCSVRecords(csvRecordList);
         return responseService.doMatrixFormatStringFlatten(integerList1);
     }
 
@@ -65,18 +65,18 @@ public class MatrixServiceImpl implements MatrixService {
     @Override
     public int doMatrixSum(MultipartFile file) throws IOException {
         List<CSVRecord> csvRecordList = getCSVRecordsFromInputFile(file);
-        List<List<Integer>> integerList1 = getMatrixFromCSVRecords(csvRecordList);
-        if(!validationService.isValidMatrixFormat(integerList1))
+        if(!validationService.isValidMatrixFormat(csvRecordList))
             throw new InvalidInputException("provided data is NOT a valid matrix format...");
+        List<List<Integer>> integerList1 = getMatrixFromCSVRecords(csvRecordList);
         return responseService.doMatrixSum(integerList1);
     }
 
     @Override
     public int doMatrixMultiply(MultipartFile file) throws IOException {
         List<CSVRecord> csvRecordList = getCSVRecordsFromInputFile(file);
-        List<List<Integer>> integerList1 = getMatrixFromCSVRecords(csvRecordList);
-        if(!validationService.isValidMatrixFormat(integerList1))
+        if(!validationService.isValidMatrixFormat(csvRecordList))
             throw new InvalidInputException("provided data is NOT a valid matrix format...");
+        List<List<Integer>> integerList1 = getMatrixFromCSVRecords(csvRecordList);
         return responseService.doMatrixMultiply(integerList1);
     }
 
