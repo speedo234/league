@@ -39,11 +39,20 @@ class MatrixServiceImplTest {
     @Mock
     ResponseServiceImpl responseService;
 
+    private List<List<Integer>> integerList1;
 
     @BeforeEach
     void setUp() throws IOException {
         inputFile = new FileInputStream( "C:/Users/ibren/gitrepositories/java projects/league/src/main/resources/matrix.csv");
         file = new MockMultipartFile("file", "NameOfTheFile", "multipart/form-data", inputFile);
+
+        integerList1 = new ArrayList<>();
+        List<Integer> integerList = Arrays.asList(1,2,3);
+        integerList1.add(integerList);
+        integerList = Arrays.asList(4,5,6);
+        integerList1.add(integerList);
+        integerList = Arrays.asList(7,8,9);
+        integerList1.add(integerList);
     }
 
     @Test
@@ -60,8 +69,8 @@ class MatrixServiceImplTest {
 
         String expected = stringBuilder.toString();
 
-        when(validationService.isInputAnInteger(Mockito.anyString())).thenReturn(true);
-        when(responseService.doMatrixFormatString(Mockito.anyList())).thenReturn(expected);
+        when(validationService.isInputAnInteger( Mockito.anyString() )).thenReturn(true);
+        when(responseService.doMatrixFormatString(integerList1)).thenReturn(expected);
         String actual = matrixService.doMatrixGiven(file);
         assertThat( actual ).isEqualTo(expected);
     }
@@ -81,7 +90,7 @@ class MatrixServiceImplTest {
         String expected = stringBuilder.toString();
 
         when(validationService.isInputAnInteger(Mockito.anyString())).thenReturn(true);
-        when(responseService.doMatrixFormatStringInverted(Mockito.anyList())).thenReturn(expected);
+        when(responseService.doMatrixFormatStringInverted(integerList1)).thenReturn(expected);
         String actual = matrixService.doMatrixInverted(file);
         assertThat( actual ).isEqualTo(expected);
     }
@@ -97,8 +106,9 @@ class MatrixServiceImplTest {
         String expected = stringBuilder.toString();
 
         when(validationService.isInputAnInteger(Mockito.anyString())).thenReturn(true);
-        when(responseService.doMatrixFormatStringFlatten(Mockito.anyList())).thenReturn(expected);
+        when(responseService.doMatrixFormatStringFlatten(integerList1)).thenReturn(expected);
         String actual = matrixService.doMatrixFlatten(file);
+        System.out.println(actual);
         assertThat( actual ).isEqualTo(expected);
     }
 
@@ -108,7 +118,7 @@ class MatrixServiceImplTest {
         int expected = 45;
 
         when(validationService.isInputAnInteger(Mockito.anyString())).thenReturn(true);
-        when(responseService.doMatrixSum(Mockito.anyList())).thenReturn(expected);
+        when(responseService.doMatrixSum( integerList1 )).thenReturn(expected);
         int actual = matrixService.doMatrixSum(file);
         assertThat( actual ).isEqualTo(expected);
     }
@@ -119,8 +129,9 @@ class MatrixServiceImplTest {
         int expected = 362880;
 
         when(validationService.isInputAnInteger(Mockito.anyString())).thenReturn(true);
-        when(responseService.doMatrixSum(Mockito.anyList())).thenReturn(expected);
-        int actual = matrixService.doMatrixSum(file);
+        when(responseService.doMatrixMultiply(integerList1)).thenReturn(expected);
+        int actual = matrixService.doMatrixMultiply(file);
+        System.out.println(actual);
         assertThat( actual ).isEqualTo(expected);
     }
 }
