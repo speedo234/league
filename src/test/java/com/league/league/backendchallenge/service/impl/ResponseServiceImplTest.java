@@ -25,9 +25,18 @@ class ResponseServiceImplTest {
     @InjectMocks
     ResponseServiceImpl responseService;
 
+    private List<List<Integer>> integerList1;
+
 
     @BeforeEach
     void setUp() {
+        integerList1 = new ArrayList<>();
+        List<Integer> integerList = Arrays.asList(1,2,3);
+        integerList1.add(integerList);
+        integerList = Arrays.asList(4,5,6);
+        integerList1.add(integerList);
+        integerList = Arrays.asList(7,8,9);
+        integerList1.add(integerList);
     }
 
     @Test
@@ -43,14 +52,6 @@ class ResponseServiceImplTest {
         stringBuilder.append("```");
 
         String expected = stringBuilder.toString();
-
-        List<List<Integer>> integerList1 = new ArrayList<>();
-        List<Integer> integerList = Arrays.asList(1,2,3);
-        integerList1.add(integerList);
-        integerList = Arrays.asList(4,5,6);
-        integerList1.add(integerList);
-        integerList = Arrays.asList(7,8,9);
-        integerList1.add(integerList);
 
         String actual = responseService.doMatrixFormatString(integerList1);
 
@@ -71,14 +72,6 @@ class ResponseServiceImplTest {
 
         String expected = stringBuilder.toString();
 
-        List<List<Integer>> integerList1 = new ArrayList<>();
-        List<Integer> integerList = Arrays.asList(1,2,3);
-        integerList1.add(integerList);
-        integerList = Arrays.asList(4,5,6);
-        integerList1.add(integerList);
-        integerList = Arrays.asList(7,8,9);
-        integerList1.add(integerList);
-
         String actual = responseService.doMatrixFormatStringInverted(integerList1);
 
         assertThat(actual).isEqualTo( expected );
@@ -94,14 +87,6 @@ class ResponseServiceImplTest {
 
         String expected = stringBuilder.toString();
 
-        List<List<Integer>> integerList1 = new ArrayList<>();
-        List<Integer> integerList = Arrays.asList(1,2,3);
-        integerList1.add(integerList);
-        integerList = Arrays.asList(4,5,6);
-        integerList1.add(integerList);
-        integerList = Arrays.asList(7,8,9);
-        integerList1.add(integerList);
-
         String actual = responseService.doMatrixFormatStringFlatten(integerList1);
 
         assertThat(actual).isEqualTo( expected );
@@ -113,14 +98,6 @@ class ResponseServiceImplTest {
 
         int expected = 45;
 
-        List<List<Integer>> integerList1 = new ArrayList<>();
-        List<Integer> integerList = Arrays.asList(1,2,3);
-        integerList1.add(integerList);
-        integerList = Arrays.asList(4,5,6);
-        integerList1.add(integerList);
-        integerList = Arrays.asList(7,8,9);
-        integerList1.add(integerList);
-
         int actual = responseService.doMatrixSum(integerList1);
 
         assertThat(actual).isEqualTo( expected );
@@ -130,14 +107,6 @@ class ResponseServiceImplTest {
     void doMatrixMultiply() {
 
         int expected = 362880;
-
-        List<List<Integer>> integerList1 = new ArrayList<>();
-        List<Integer> integerList = Arrays.asList(1,2,3);
-        integerList1.add(integerList);
-        integerList = Arrays.asList(4,5,6);
-        integerList1.add(integerList);
-        integerList = Arrays.asList(7,8,9);
-        integerList1.add(integerList);
 
         int actual = responseService.doMatrixMultiply(integerList1);
 
