@@ -14,17 +14,10 @@ import java.util.Date;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-
-//    @ExceptionHandler(ValidationException.class)
-//    public ResponseEntity<?> handleValidationException(ValidationException exception, HttpServletResponse response, WebRequest request) throws IOException{
-//        ErrorDetails errorDetails = new ErrorDetails(new Date(), HttpServletResponse.SC_BAD_REQUEST, HttpStatus.BAD_REQUEST.toString(), exception.getMessage(), request.getDescription(false));
-//        return ResponseEntity.ok(errorDetails);
-//    }
-
     @ExceptionHandler(InvalidInputException.class)
     public ResponseEntity<?> handleInvalidInputException(InvalidInputException exception, HttpServletResponse response, WebRequest request) throws IOException{
-        ErrorDetails errorDetails = new ErrorDetails(new Date(), HttpServletResponse.SC_BAD_REQUEST, HttpStatus.BAD_REQUEST.toString(), exception.getMessage(), request.getDescription(false));
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorDetails);
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), HttpServletResponse.SC_NOT_ACCEPTABLE, HttpStatus.NOT_ACCEPTABLE.toString(), exception.getMessage(), request.getDescription(false));
+        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(errorDetails);
     }
 
     @ExceptionHandler(ApplicationException.class)
