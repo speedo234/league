@@ -18,35 +18,6 @@ public class ResponseServiceImpl implements ResponseService {
     ValidationService validationService;
 
 
-//    public static List<CSVRecord> getCSVRecordsFromInputFile(MultipartFile file) throws IOException {
-//        CSVParser records = CSVFormat.EXCEL.parse(new InputStreamReader(file.getInputStream()));
-//        return records.getRecords();
-//    }
-
-
-
-//    public static List<List<Integer>> getMatrixFromCSVRecords(List<CSVRecord> csvRecordList) throws IOException {
-//        List<List<Integer>> listArrayList = new ArrayList<List<Integer>>();
-//        List<Integer> integerList = null;
-//        CSVRecord tempArrayLine = null;
-//        for (int x = 0; x < csvRecordList.size(); x++) {
-//            integerList = new ArrayList<>();
-//
-//            tempArrayLine = csvRecordList.get(x);
-//
-//            for(int i = 0; i < tempArrayLine.size(); i++){
-//
-//                if(!ValidationService.isInputAnInteger( tempArrayLine.get(i) ))
-//                    throw new InvalidInputException("value "+tempArrayLine.get(i)+" entered at index "+x+" "+i+" is an invalid integer...");
-//
-//                integerList.add( Integer.parseInt( tempArrayLine.get(i) ) );
-//            }
-//            listArrayList.add(integerList);
-//        }
-//        return listArrayList;
-//    }
-
-
     public String doMatrixFormatString(List<List<Integer>> integerList1){
         StringBuilder stringBuilder = new StringBuilder();
         for(int i = 0; i < integerList1.size(); i++){
@@ -127,7 +98,6 @@ public class ResponseServiceImpl implements ResponseService {
         }
         return matrixMultiplication;
     }
-
 
 
 }

@@ -1,14 +1,20 @@
 package com.league.league;
 
+import com.league.league.backendchallenge.util.MatrixUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class LeagueApplication {
 
+	static final Logger logger = LoggerFactory.getLogger(LeagueApplication.class);
+
+
 	public static void main(String[] args) {
 		SpringApplication.run(LeagueApplication.class, args);
-		System.out.println("Application Fired Up and Running...");
+		logger.info("Application Fired Up and Running...");
 	}
 
 }

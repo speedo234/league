@@ -43,7 +43,7 @@ class MatrixServiceImplTest {
 
     @BeforeEach
     void setUp() throws IOException {
-        inputFile = new FileInputStream( "C:/Users/ibren/gitrepositories/java projects/league/src/main/resources/matrix.csv");
+        inputFile = new FileInputStream( "C:/Users/ibren/gitrepositories/java projects/league/src/test/resources/matrix.csv");
         file = new MockMultipartFile("file", "NameOfTheFile", "multipart/form-data", inputFile);
 
         integerList1 = new ArrayList<>();
@@ -111,7 +111,6 @@ class MatrixServiceImplTest {
         when(validationService.isInputAnInteger(Mockito.anyString())).thenReturn(true);
         when(responseService.doMatrixFormatStringFlatten(integerList1)).thenReturn(expected);
         String actual = matrixService.doMatrixFlatten(file);
-        System.out.println(actual);
         assertThat( actual ).isEqualTo(expected);
     }
 
@@ -136,7 +135,6 @@ class MatrixServiceImplTest {
         when(validationService.isInputAnInteger(Mockito.anyString())).thenReturn(true);
         when(responseService.doMatrixMultiply(integerList1)).thenReturn(expected);
         int actual = matrixService.doMatrixMultiply(file);
-        System.out.println(actual);
         assertThat( actual ).isEqualTo(expected);
     }
 }

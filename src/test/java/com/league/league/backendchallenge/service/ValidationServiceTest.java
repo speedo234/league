@@ -37,7 +37,7 @@ class ValidationServiceTest {
 
     @BeforeEach
     void setUp() throws IOException {
-        inputFile = new FileInputStream( "C:/Users/ibren/gitrepositories/java projects/league/src/main/resources/matrix.csv");
+        inputFile = new FileInputStream( "C:/Users/ibren/gitrepositories/java projects/league/src/test/resources/matrix.csv");
         file = new MockMultipartFile("file", "NameOfTheFile", "multipart/form-data", inputFile);
     }
 
@@ -48,7 +48,6 @@ class ValidationServiceTest {
         boolean expected = true;
 
         boolean actual = validationService.isInputAnInteger(input);
-        System.out.println(actual);
         assertThat(actual).isEqualTo(expected);
     }
 
@@ -61,7 +60,6 @@ class ValidationServiceTest {
         boolean expected = true;
 
         boolean actual = validationService.isValidMatrixFormat(csvRecordList);
-        System.out.println(actual);
         assertThat(actual).isEqualTo(expected);
     }
 
