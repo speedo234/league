@@ -82,10 +82,10 @@ public class MatrixServiceImpl implements MatrixService {
 
             for(int i = 0; i < tempArrayLine.size(); i++){
 
-                if(!validationService.isInputAnInteger( tempArrayLine.get(i) ))
-                    throw new InvalidInputException("value "+tempArrayLine.get(i)+" entered at index "+x+" "+i+" is an invalid integer...");
+                if(!validationService.isInputAnInteger( tempArrayLine.get(i).trim() ))
+                    throw new InvalidInputException("value '"+tempArrayLine.get(i).trim()+"' entered at index "+x+" "+i+" is an invalid integer...");
 
-                integerList.add( Integer.parseInt( tempArrayLine.get(i) ) );
+                integerList.add( Integer.parseInt( tempArrayLine.get(i).trim() ) );
             }
             listArrayList.add(integerList);
         }
