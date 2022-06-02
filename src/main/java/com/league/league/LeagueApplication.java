@@ -1,6 +1,5 @@
 package com.league.league;
 
-import com.league.league.backendchallenge.util.MatrixUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;

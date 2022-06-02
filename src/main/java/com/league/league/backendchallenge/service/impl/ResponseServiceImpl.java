@@ -60,7 +60,7 @@ public class ResponseServiceImpl implements ResponseService {
                 stringBuilder.append(innerList.get(x));
 
                 elementCount = elementCount+1;
-                MatrixUtil.doSingleLineProcessor(stringBuilder, i, innerList.size(), elementCount);
+                MatrixUtil.doSingleLineProcessor(stringBuilder, innerList.size(), elementCount);
 
             }
         }

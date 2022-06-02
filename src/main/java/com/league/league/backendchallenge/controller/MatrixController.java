@@ -5,10 +5,11 @@ import com.league.league.backendchallenge.service.MatrixService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 @RestController
@@ -39,13 +40,13 @@ public class MatrixController {
 
 
     @PostMapping("/echoSum")
-    public ResponseEntity<?> echoSum( @RequestPart("file") MultipartFile file ) throws IOException {
+    public ResponseEntity<Integer> echoSum( @RequestPart("file") MultipartFile file ) throws IOException {
         return ResponseEntity.status(HttpStatus.OK).body(matrixService.doMatrixSum(file));
     }
 
 
     @PostMapping("/echoMultiply")
-    public ResponseEntity<?> echoMultiply( @RequestPart("file") MultipartFile file ) throws IOException {
+    public ResponseEntity<Integer> echoMultiply( @RequestPart("file") MultipartFile file ) throws IOException {
         return ResponseEntity.status(HttpStatus.OK).body(matrixService.doMatrixMultiply(file));
     }
 

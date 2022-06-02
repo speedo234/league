@@ -12,10 +12,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 
-    //http://localhost:8089/swagger-ui/index.html
+    //http://localhost:8080/swagger-ui/index.html
 
     @Bean
-    public Docket SwaggerConfig() {
+    public Docket swaggerDocket() {
         return new Docket(DocumentationType.SWAGGER_2).select()
                 .apis(RequestHandlerSelectors.basePackage("com.league.league.backendchallenge")).build();
     }

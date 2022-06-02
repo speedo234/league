@@ -81,8 +81,8 @@ public class MatrixServiceImpl implements MatrixService {
     }
 
 
-    private List<List<Integer>> getMatrixFromCSVRecords(List<CSVRecord> csvRecordList) throws IOException {
-        List<List<Integer>> listArrayList = new ArrayList<List<Integer>>();
+    private List<List<Integer>> getMatrixFromCSVRecords(List<CSVRecord> csvRecordList) {
+        List<List<Integer>> listArrayList = new ArrayList<>();
         List<Integer> integerList = null;
         CSVRecord tempArrayLine = null;
         for (int x = 0; x < csvRecordList.size(); x++) {

@@ -1,11 +1,8 @@
 package com.league.league.backendchallenge.util;
 
 
-import com.league.league.backendchallenge.service.ValidationService;
-import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -16,6 +13,9 @@ public class MatrixUtil {
 
     static final Logger logger = LoggerFactory.getLogger(MatrixUtil.class);
 
+
+    private MatrixUtil() {
+    }
 
     public static void printMatrix(List<List<Integer>> integerList1){
         for(List<Integer> integerList :integerList1){
@@ -33,7 +33,7 @@ public class MatrixUtil {
     }
 
 
-    public static void doSingleLineProcessor(StringBuilder stringBuilder, int indexControl, int listSize, int elementCount){
+    public static void doSingleLineProcessor(StringBuilder stringBuilder, int listSize, int elementCount){
         if(elementCount < listSize*listSize )
             stringBuilder.append(",");
     }
