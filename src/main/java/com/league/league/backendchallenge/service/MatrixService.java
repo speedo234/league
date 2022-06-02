@@ -36,7 +36,7 @@ public interface MatrixService {
      * <code>Sum</code>
      *- Return the sum of the integers in the matrix
      */
-    int doMatrixSum(MultipartFile file) throws IOException;
+    Long doMatrixSum(MultipartFile file) throws IOException;
 
 
     /**
@@ -44,7 +44,7 @@ public interface MatrixService {
      * <code>Multiply</code>
      *- Return the product of the integers in the matrix
      */
-    int doMatrixMultiply(MultipartFile file) throws IOException;
+    Long doMatrixMultiply(MultipartFile file) throws IOException;
 
 
 }

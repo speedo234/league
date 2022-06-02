@@ -63,7 +63,7 @@ public class MatrixServiceImpl implements MatrixService {
 
 
     @Override
-    public int doMatrixSum(MultipartFile file) throws IOException {
+    public Long doMatrixSum(MultipartFile file) throws IOException {
         List<CSVRecord> csvRecordList = getCSVRecordsFromInputFile(file);
         if(!validationService.isValidMatrixFormat(csvRecordList))
             throw new InvalidInputException("provided data is NOT a valid matrix format...");
@@ -72,7 +72,7 @@ public class MatrixServiceImpl implements MatrixService {
     }
 
     @Override
-    public int doMatrixMultiply(MultipartFile file) throws IOException {
+    public Long doMatrixMultiply(MultipartFile file) throws IOException {
         List<CSVRecord> csvRecordList = getCSVRecordsFromInputFile(file);
         if(!validationService.isValidMatrixFormat(csvRecordList))
             throw new InvalidInputException("provided data is NOT a valid matrix format...");

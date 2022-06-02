@@ -70,8 +70,8 @@ public class ResponseServiceImpl implements ResponseService {
     }
 
 
-    public int doMatrixSum(List<List<Integer>> integerList1){
-        int matrixSummation = 0;
+    public Long doMatrixSum(List<List<Integer>> integerList1){
+        Long matrixSummation = 0L;
 
         for(int i = 0; i < integerList1.size(); i++){
             List<Integer> innerList = integerList1.get(i);
@@ -85,8 +85,8 @@ public class ResponseServiceImpl implements ResponseService {
     }
 
 
-    public int doMatrixMultiply(List<List<Integer>> integerList1){
-        int matrixMultiplication = 1;
+    public Long doMatrixMultiply(List<List<Integer>> integerList1){
+        Long matrixMultiplication = 1L;
 
         for(int i = 0; i < integerList1.size(); i++){
             List<Integer> innerList = integerList1.get(i);

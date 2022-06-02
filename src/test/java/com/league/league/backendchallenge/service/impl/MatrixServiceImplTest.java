@@ -117,24 +117,24 @@ class MatrixServiceImplTest {
     @Test
     void doMatrixSum() throws IOException {
 
-        int expected = 45;
+        Long expected = 45L;
 
         when(validationService.isValidMatrixFormat( Mockito.anyList() )).thenReturn(true);
         when(validationService.isInputAnInteger(Mockito.anyString())).thenReturn(true);
         when(responseService.doMatrixSum( integerList1 )).thenReturn(expected);
-        int actual = matrixService.doMatrixSum(file);
+        Long actual = matrixService.doMatrixSum(file);
         assertThat( actual ).isEqualTo(expected);
     }
 
     @Test
     void doMatrixMultiply() throws IOException {
 
-        int expected = 362880;
+        Long expected = 362880L;
 
         when(validationService.isValidMatrixFormat( Mockito.anyList() )).thenReturn(true);
         when(validationService.isInputAnInteger(Mockito.anyString())).thenReturn(true);
         when(responseService.doMatrixMultiply(integerList1)).thenReturn(expected);
-        int actual = matrixService.doMatrixMultiply(file);
+        Long actual = matrixService.doMatrixMultiply(file);
         assertThat( actual ).isEqualTo(expected);
     }
 }

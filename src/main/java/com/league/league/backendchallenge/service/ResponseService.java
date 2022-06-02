@@ -15,10 +15,10 @@ public interface ResponseService {
     String doMatrixFormatStringFlatten(List<List<Integer>> integerList1);
 
 
-    int doMatrixSum(List<List<Integer>> integerList1);
+    Long doMatrixSum(List<List<Integer>> integerList1);
 
 
-    int doMatrixMultiply(List<List<Integer>> integerList1);
+    Long doMatrixMultiply(List<List<Integer>> integerList1);
 
 
 

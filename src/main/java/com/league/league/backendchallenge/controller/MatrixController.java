@@ -40,13 +40,13 @@ public class MatrixController {
 
 
     @PostMapping("/echoSum")
-    public ResponseEntity<Integer> echoSum( @RequestPart("file") MultipartFile file ) throws IOException {
+    public ResponseEntity<Long> echoSum( @RequestPart("file") MultipartFile file ) throws IOException {
         return ResponseEntity.status(HttpStatus.OK).body(matrixService.doMatrixSum(file));
     }
 
 
     @PostMapping("/echoMultiply")
-    public ResponseEntity<Integer> echoMultiply( @RequestPart("file") MultipartFile file ) throws IOException {
+    public ResponseEntity<Long> echoMultiply( @RequestPart("file") MultipartFile file ) throws IOException {
         return ResponseEntity.status(HttpStatus.OK).body(matrixService.doMatrixMultiply(file));
     }
 

@@ -96,9 +96,9 @@ class ResponseServiceImplTest {
     @Test
     void doMatrixSum() {
 
-        int expected = 45;
+        Long expected = 45L;
 
-        int actual = responseService.doMatrixSum(integerList1);
+        Long actual = responseService.doMatrixSum(integerList1);
 
         assertThat(actual).isEqualTo( expected );
     }
@@ -108,7 +108,7 @@ class ResponseServiceImplTest {
 
         int expected = 362880;
 
-        int actual = responseService.doMatrixMultiply(integerList1);
+        Long actual = responseService.doMatrixMultiply(integerList1);
 
         assertThat(actual).isEqualTo( expected );
     }
